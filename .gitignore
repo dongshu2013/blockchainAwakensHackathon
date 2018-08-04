@@ -1,0 +1,8 @@
+.idea
+.DS_Store
+target/
+walletalarm-api.iml
+*.log.*
+!/walletalarm-api.log
+walletalarm-api.log
+src/main/docker/*.zip
