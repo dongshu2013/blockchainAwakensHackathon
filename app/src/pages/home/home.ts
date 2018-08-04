@@ -11,4 +11,8 @@ export class HomePage {
 
   }
 
+  someFunction(e){
+console.log(e);
+  }
+
 }

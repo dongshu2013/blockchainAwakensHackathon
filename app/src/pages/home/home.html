@@ -5,13 +5,26 @@
 </ion-header>
 
 <ion-content padding>
-  <h2>Welcome to Ionic!</h2>
-  <p>
-    This starter project comes with simple tabs-based layout for apps
-    that are going to primarily use a Tabbed UI.
-  </p>
-  <p>
-    Take a look at the <code>src/pages/</code> directory to add or change tabs,
-    update any existing page or create new pages.
-  </p>
+  <div class="cards">
+    <div class="cards_inner">
+      <div class="wrap">
+
+        <div class="cards_inner__card paypal ui-draggable ui-draggable-handle ui-draggable-disabled" (swipe)='someFunction($event)'>
+          <div class="logo"></div>
+        </div>
+        <div class="cards_inner__card visa ui-draggable ui-draggable-handle ui-draggable-disabled"
+             style="transform: translateZ(-120px);">
+          <div class="logo"></div>
+        </div>
+        <div class="cards_inner__card mastercard ui-draggable ui-draggable-handle ui-draggable-disabled"
+             style="transform: translateZ(-60px);">
+          <div class="logo"></div>
+        </div>
+        <div class="cards_inner__card maestro ui-draggable ui-draggable-handle"
+             style="transform: rotate(0deg); width: 220px; right: auto; left: 0px; top: 40px;">
+          <div class="logo"></div>
+        </div>
+      </div>
+    </div>
+  </div>
 </ion-content>

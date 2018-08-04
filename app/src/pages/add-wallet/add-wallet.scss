@@ -1,0 +1,61 @@
+page-add-wallet {
+
+  ion-content {
+    margin-top: 2rem !important;
+  }
+  .item {
+    padding-left: 0px;
+  }
+
+  .item-inner{
+    padding-left: 1rem;
+  }
+
+
+  ion-header::after{
+    background-image: none !important;
+
+  }
+  .toolbar-content{
+    margin-bottom: 2rem;
+  }
+
+  .page_title {
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+  }
+
+  ion-label{
+    display: flex;
+    flex-direction: row;
+  }
+
+  //ion-select{
+  //  width: 100%;
+  //  max-width: 100%;
+  //}
+  .port {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .port label{
+    margin-top: 1rem;
+  }
+  .select-placeholder {
+    text-align: right;
+  }
+
+  .special-row ion-label {
+    padding: 0px;
+    margin: 0px;
+  }
+  .help-txt {
+    color: #999;
+    margin: 3rem;
+    text-align: center;
+    font-size: 12px;
+    line-height: 1.5rem;
+  }
+}

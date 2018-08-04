@@ -1,16 +1,15 @@
 import { NgModule } from '@angular/core';
 import { IonicPageModule } from 'ionic-angular';
-import { SettingsPage } from './settings';
-import {ComponentsModule} from "../../components/components.module";
+import { AddWalletPage } from './add-wallet';
 import {TranslateLoader, TranslateModule} from "@ngx-translate/core";
-import {HttpClient} from "@angular/common/http";
 import {createTranslateLoader} from "../../app/app.module";
+import {HttpClient} from "@angular/common/http";
 
 @NgModule({
   declarations: [
-    SettingsPage,
+    AddWalletPage,
   ],
-  imports: [ ComponentsModule,
+  imports: [
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
@@ -18,7 +17,7 @@ import {createTranslateLoader} from "../../app/app.module";
         deps: [HttpClient]
       }
     }),
-    IonicPageModule.forChild(SettingsPage)
+    IonicPageModule.forChild(AddWalletPage),
   ],
 })
-export class SettingsPageModule {}
+export class AddWalletPageModule {}

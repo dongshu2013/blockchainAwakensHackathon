@@ -1,0 +1,66 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Add Wallet</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item>
+      <ion-label stacked>Name</ion-label>
+      <ion-input type="email" placeholder="My Wallet" [(ngModel)]="nickName"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label stacked>Type</ion-label>
+      <ion-select [(ngModel)]="walletType" [selectOptions]="selectOptions">
+        <ion-option value="ETH">ETH</ion-option>
+        <ion-option value="BTC">BTC</ion-option>
+      </ion-select>
+    </ion-item>
+    <ion-item class="special-row">
+      <ion-row style="width: 100%">
+        <ion-col col-10 style="padding: 0px;">
+          <input type="text" class="textbox" placeholder="Scan or paste Address" [(ngModel)]="walletAddress">
+        </ion-col>
+        <ion-col col-2 style="display: flex;">
+          <button ion-button icon-only color="button" (click)="scan()" clear>
+            <ion-icon name="qr-scanner"></ion-icon>
+          </button>
+          <button ion-button icon-only color="button" (click)="paste()" clear>
+            <ion-icon name="copy"></ion-icon>
+          </button>
+        </ion-col>
+      </ion-row>
+    </ion-item>
+  </ion-list>
+  <ion-list>
+    <ion-list-header>
+      ADDITIONAl OPTION
+    </ion-list-header>
+    <ion-item>
+      <ion-label style="white-space: pre-wrap !important;" class="lbl">Set as Default View</ion-label>
+      <ion-toggle [(ngModel)]="inApp" color="toggle-color"></ion-toggle>
+    </ion-item>
+    <ion-item>
+      <ion-label style="white-space: pre-wrap !important;" class="lbl">Alarm Enable</ion-label>
+      <ion-toggle [(ngModel)]="inApp" color="toggle-color"></ion-toggle>
+    </ion-item>
+    <ion-item>
+      <ion-label style="white-space: pre-wrap !important;" class="lbl">Play Sound when Notification comes</ion-label>
+      <ion-toggle [(ngModel)]="inApp" color="toggle-color"></ion-toggle>
+    </ion-item>
+  </ion-list>
+  <div class="help-txt"> You can add unlimited wallets. either by typing the addredd or past it. You can also scan the QR code to enter the address.
+    <p>
+
+    asjdhsajdhjsakdh kjadkjashd kjkjhdkjas kjasdh  kjahdkj hdkjasd  kjhaskjdhskldjh  lkjadskjhsdk j askdjskdjahsd
+    </p>
+
+  </div>
+
+  <ion-fab bottom left style="width: 100%;margin-left: -10px;" >
+    <button ion-button full large icon-left (click)="save()" color="button">
+      Save Detail
+    </button>
+  </ion-fab>
+</ion-content>
