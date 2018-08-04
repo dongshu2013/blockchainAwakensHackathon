@@ -165,7 +165,7 @@ CREATE TABLE `wallet_transaction` (
   `name` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   `symbol` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   `note` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
-  PRIMARY KEY (`transaction_id`),
+  PRIMARY KEY (`wallet_transaction_id`),
   UNIQUE KEY `transaction_hash_UNIQUE` (`hash`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
