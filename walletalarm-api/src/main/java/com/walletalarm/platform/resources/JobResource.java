@@ -51,10 +51,9 @@ public class JobResource {
     @Path("/notificationJob")
     public Response createNotificationJob() {
         try {
-            int jobId = NotificationJobHandler.doNotificationJob(jobDAO, blockBatchDAO, notificationDAO, transactionDAO,
+            NotificationJobHandler.doNotificationJob(blockBatchDAO, notificationDAO, transactionDAO,
                     server, apiConfiguration.getFcmToken());
-            String output = "{\"jobId\":" + jobId + "}";
-            return Response.status(Response.Status.CREATED).entity(output).build();
+            return Response.status(Response.Status.CREATED).build();
         } catch (Exception e) {
             return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity(e.getMessage()).build();
         }
@@ -64,10 +63,9 @@ public class JobResource {
     @Path("/blockBatchScanningJob")
     public Response createBlockScrappingJob() {
         try {
-            int jobId = BlockBatchScanningJobHandler.doBlockBatchScanningJob(jobDAO, blockBatchDAO, walletDAO,
+            BlockBatchScanningJobHandler.doBlockBatchScanningJob(blockBatchDAO, walletDAO,
                     contractDAO, transactionDAO, walletTransactionDAO, server, web3j);
-            String output = "{\"jobId\":" + jobId + "}";
-            return Response.status(Response.Status.CREATED).entity(output).build();
+            return Response.status(Response.Status.CREATED).build();
         } catch (Exception e) {
             return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity(e.getMessage()).build();
         }
@@ -77,10 +75,9 @@ public class JobResource {
     @Path("/blockBatchMaintainerJob")
     public Response createBlockBatchMaintainerJob() {
         try {
-            int jobId = BlockBatchMaintainerJobHandler.doBlockBatchMaintenance(jobDAO, blockBatchDAO, transactionDAO, web3j,
+            BlockBatchMaintainerJobHandler.doBlockBatchMaintenance(blockBatchDAO, transactionDAO, web3j,
                     apiConfiguration.getEthMaxBlockNumber(), apiConfiguration.getEthLatestBlockNumber(), apiConfiguration.isTestMode());
-            String output = "{\"jobId\":" + jobId + "}";
-            return Response.status(Response.Status.CREATED).entity(output).build();
+            return Response.status(Response.Status.CREATED).build();
         } catch (Exception e) {
             return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity(e.getMessage()).build();
         }

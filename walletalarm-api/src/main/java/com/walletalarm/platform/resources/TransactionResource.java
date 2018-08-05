@@ -2,7 +2,6 @@ package com.walletalarm.platform.resources;
 
 import com.codahale.metrics.annotation.Timed;
 import com.walletalarm.platform.core.Transaction;
-import com.walletalarm.platform.core.Wallet;
 import com.walletalarm.platform.db.dao.TransactionDAO;
 import io.swagger.annotations.Api;
 

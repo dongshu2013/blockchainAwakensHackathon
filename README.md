@@ -1,6 +1,0 @@
-# blockchainAwakensHackathon
-
-#App
-
-
-#API
