@@ -1,0 +1,32 @@
+<ion-card *ngFor="let n of holders" [class.list-layout]="currentLayout==='list'">
+  <ion-card-content style="padding: 0px 12px !important;" class="coin-card" [ngStyle]="{'border-left': n.color}">
+    <ion-grid>
+
+      <ion-row>
+        <ion-col col-2  class="flex-column f-column">
+          <label>Rank</label>
+          <span>1</span>
+        </ion-col>
+        <ion-col col-6  class="flex-column f-column">
+          <label>Quantity</label>
+          <span>{{n.quantity}}</span>
+        </ion-col>
+        <ion-col col-4  class="flex-column f-column">
+          <label>Percent</label>
+          <span>{{n.percent}}</span>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col col-12 style="text-align: center">
+          <span class="address"> {{n.address}}</span>
+          <ion-fab #fab class="add-wallet">
+            <button ion-fab (click)="addWallet()">
+              <ion-icon name="add"></ion-icon>
+            </button>
+          </ion-fab>
+
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-card-content>
+</ion-card>

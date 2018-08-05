@@ -1,0 +1,48 @@
+<ion-list [hidden]="isRoadmapHidden" [class.list-layout]="currentLayout==='list'">
+  <ion-list-header>
+    Transaction Details
+  </ion-list-header>
+</ion-list>
+<ion-grid [hidden]="isRoadmapHidden">
+  <ion-row>
+    <div class="main">
+      <div class="row-t" *ngFor="let m of transactions">
+        <div class="marker">{{m.index}}</div>
+        <div class="main-container">
+          <div class="triangle"></div>
+          <ion-grid>
+            <ion-row>
+              <ion-col col-6 class="flex-column f-column">
+                <label>From</label>
+                <span>0xb297cacf0f91c86dd9d2fb47c6d12783121ab780</span>
+              </ion-col>
+              <ion-col col-6 class="flex-column f-column">
+                <ion-fab #fab class="add-wallet">
+                  <button ion-fab (click)="addWallet()">
+                    <ion-icon name="add"></ion-icon>
+                  </button>
+                </ion-fab>
+                <label>To</label>
+                <span>My Wallet</span>
+              </ion-col>
+            </ion-row>
+            <ion-row style="width: 100%">
+              <ion-col col-4  class="flex-column f-column">
+                  <label>Date</label>
+                  <span>12 Aug 2018</span>
+              </ion-col>
+              <ion-col col-4  class="flex-column f-column">
+                <label>Gas</label>
+                <span>$20.0</span>
+              </ion-col>
+              <ion-col col-4  class="flex-column f-column">
+                <label>Value</label>
+                <span>10 ETH</span>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </div>
+      </div>
+    </div>
+  </ion-row>
+</ion-grid>

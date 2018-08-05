@@ -1,0 +1,32 @@
+token-holder-card {
+
+  .address{
+    font-size: 12px;
+  }
+
+  .add-wallet {
+    right: -10px;
+    bottom: 0rem;
+  }
+.f-column{
+  text-align: center;
+}
+  .f-column label {
+
+  }
+
+  .f-column span {
+    font-size: 10px;
+    text-align: center;
+  }
+
+  .list-layout{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+  }
+  .list-layout .coin-card{
+    border-radius: 0px;
+    border-bottom: 0px;
+  }
+}
