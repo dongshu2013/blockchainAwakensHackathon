@@ -1,0 +1,209 @@
+page-coin-view {
+
+  #container {
+    height: 400px;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  ion-content {
+    margin-top: 0px !important;
+  }
+  .title-container {
+    height: 140px;
+    width: 100%;
+  }
+  .toolbar-title {
+    display: flex;
+
+  }
+
+  .item {
+    padding-left: 0px;
+  }
+
+  .item-inner{
+    padding-left: 1rem;
+  }
+
+  .list-row ion-label{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .toolbar-title .name {
+    margin-top: 1.5rem;
+    margin-left: 20%;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+  }
+  .name img {
+    margin-right: 5px;
+    vertical-align: middle;
+  }
+
+  .name div, .name img {
+    vertical-align: middle;
+  }
+
+  .title {
+    margin-left: 0px;
+    padding-top: 0px;
+  }
+
+  .highcharts-xaxis-grid .highcharts-grid-line {
+    stroke-width: 0.5px;
+    stroke: #666;
+  }
+
+  .highcharts-yaxis-grid .highcharts-grid-line {
+    stroke-width: 0.5px;
+    stroke: #666;
+  }
+
+  .highcharts-xaxis .highcharts-tick {
+    stroke-width: 0.5px;
+    stroke: #d8d8d8;
+  }
+  .highcharts-minor-grid-line {
+    stroke-dasharray: 1, 1;
+  }
+
+  .highcharts-container {
+    width: 100% !important;
+    height: 100% !important;
+  }
+  .highcharts-series {
+    clip-path: none;
+  }
+  ion-chip {
+    //border-radius: 0px !important;
+    //height: 2rem !important;
+    //padding: 0px;
+    margin-right: 1rem !important;
+  }
+  ion-chip ion-label {
+    font-size: 10px;
+  }
+
+  .chip-container {
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    margin-left: 1rem;
+  }
+
+  .coin-chip {
+    display: flex;
+    justify-content: space-evenly;
+    border-bottom: 0.5px solid #333;
+    padding: 0.5rem;
+  }
+  .coin-chip .selected {
+    border-radius: 16px;
+    height: 32px;
+    font-size: 13px;
+    line-height: 32px;
+    margin: 2px 0;
+  }
+
+  .segment-button {
+    font-size: 10px !important;
+  }
+
+  .widget-main {
+    border: 1px solid #666;
+    border-radius: 10px;
+    margin: 1rem;
+    width: 95%;
+  }
+
+  .widget-main .head {
+    padding: 1rem;
+    border-bottom: 1px solid #666;
+    display: flex;
+    justify-content: center;
+  }
+
+  .widget-main .head-main {
+    display: flex;
+    flex-direction: column;
+    line-height: 0.8;
+  }
+
+  .widget-main .head .title {
+    font-size: 18px;
+    font-weight: bold;
+    color: #999;
+  }
+
+  .widget-main .widget-content {
+    border-bottom: 1px solid #666;
+    display: flex;
+    flex-direction: row;
+  }
+
+  .widget-main .widget-content div {
+    flex: 1 1 30%;
+    border-right: 1px solid #666;
+    padding: 1rem;
+  }
+
+  .widget-main .widget-content .title {
+    font-size: 12px;
+    color: #999;
+    font-weight: bold;
+  }
+
+  .widget-main .widget-content .widget-val {
+    font-size: 12px;
+    color: #fff;
+    font-family: -apple-system, "Helvetica Neue", "Roboto", sans-serif;
+  }
+
+  .widget-main .percent {
+    font-weight: bold;
+  }
+
+  .widget-main .footer {
+    padding: 0.5rem;
+    display: flex;
+    justify-content: center;
+    font-size: 11px;
+  }
+
+  .widget-main .center {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    line-height: 0.8;
+  }
+
+  .lbl {
+    text-align: center;
+    font-size: 12px;
+    color: #999;
+  }
+
+  .val {
+    text-align: center;
+    font-size: 10px;
+    color: #fff;
+  }
+  .price {
+    font-size: 12px;
+    margin-top: 5px;
+  }
+  .price span {
+    color: #999;
+  }
+
+  .rank {
+    font-size: 12px;
+    padding: 1px;
+    border-radius: 5px;
+    padding-left: 4px;
+    padding-right: 4px;
+  }
+
+}

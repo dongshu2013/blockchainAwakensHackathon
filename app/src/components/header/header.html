@@ -13,7 +13,7 @@
     <ion-buttons end style="display: inline-block;float: right;">
       <button ion-button icon-only color="gray" (click)="notification()" clear>
         <ion-icon name='notifications'></ion-icon>
-        <span class="notification num-font">{{count}}</span>
+        <span class="notification num-font"></span>
       </button>
       <button ion-button icon-only color="gray" (click)="search()" class="search-button" clear>
         <ion-icon name="search"></ion-icon>
@@ -28,8 +28,8 @@
 </div>
 
 <div class="header-container" *ngIf="!showText">
-  <div class="title logo"></div>
-  <ion-buttons end style="display: inline-block;float: right;">
+  <div class="title logo">{{showButtons}}</div>
+  <ion-buttons end style="display: inline-block;float: right;" [hidden]="!showButtons">
     <button ion-button icon-only color="gray" (click)="notification()" clear>
       <ion-icon name='notifications'></ion-icon>
       <span class="notification num-font">{{count}}</span>
