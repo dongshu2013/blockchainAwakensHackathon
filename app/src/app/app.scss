@@ -14,3 +14,138 @@
 // To declare rules for a specific mode, create a child rule
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
+
+
+//
+//ion-app.md, ion-app.ios {
+//  font-family: 'Roboto', sans-serif;
+//  font-size: 1.4rem;
+//  background-color: #fff;
+//}
+
+
+
+.tab-button {
+  min-height: 4.6rem !important;
+}
+.toolbar {
+  min-height: 44px !important;
+}
+
+.flex-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.flex-column{
+  display: flex;
+  flex-direction: column;
+}
+
+.textbox{
+  width: 100%;
+  height: 3.4rem;
+  margin-top: 5px;
+  border-radius: 5px;
+  color: #666;
+  border: 0px;
+}
+
+ion-content {
+  margin-top: 5rem !important;
+}
+
+ion-label{
+  font-size: 1.4rem;
+}
+
+.title{
+  margin-left: 2rem;
+  font-size: 2rem;
+  font-weight: bold;
+  padding-top: 1rem;
+  z-index: 99
+}
+.no-data-container {
+  margin-top: 60%;
+  text-align: center;
+
+}
+.no-data-txt {
+  font-size: 12px;
+}
+.no-data {
+  font-size: 3rem;
+  text-align: center;
+  color: #999;
+  margin-top: 50%;
+  margin-left: -10%;
+}
+
+ion-header::after{
+  background-image: none !important;
+
+}
+.toolbar-content{
+  margin-bottom: 2rem;
+}
+
+.alert-sub-title{
+  font-size: 11px !important;
+  color: #999;
+}
+
+.popover-content ion-icon {
+  margin-right: 10px;
+}
+
+.popover-content .item {
+  background: #000;
+  padding-left: 0px;
+}
+.popover-content .item-inner {
+  padding-left: 2rem;
+}
+.popover-content .label {
+  font-weight: bold;
+  color: #999;
+}
+.ETH{
+  background-color: #4A90E2 !important;
+}
+
+.coin-up{
+  font-size: 16px;
+  color: #32db64 !important;
+}
+
+.coin-down {
+  font-size: 16px;
+  color: #fa3e3e !important;
+}
+.coin-up span {
+  color: #32db64;
+  font-weight: bold;
+  font-family: "Roboto", "Helvetica Neue", sans-serif !important;
+}
+.coin-down span {
+  color: #fa3e3e !important;
+  font-weight: bold;
+  font-family: "Roboto", "Helvetica Neue", sans-serif !important;
+}
+
+.add-wallet .fab {
+  width: 35px;
+  height: 35px;
+}
+
+.qrcode img {
+  width:100%;
+}
+
+.loading-wrapper{
+  background: transparent !important;
+  border: 0px !important;
+  box-shadow: none !important;
+}

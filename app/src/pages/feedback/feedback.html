@@ -1,0 +1,21 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Feedback</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content>
+  <ion-list class="feedback">
+    <ion-item>
+      <textarea (input)="onInput($event)" maxlength="499" style="width: 100%;margin-left: 1rem;" id="si"
+                placeholder="Feedback / Feature Request / Bug"></textarea>
+    </ion-item>
+    <ion-item>
+      <button ion-button icon-left large color="primary2" (click)="feedback()" [disabled]="disabled" class="bold" style="margin-left: 1rem;">
+        Send
+      </button>
+    </ion-item>
+  </ion-list>
+
+</ion-content>

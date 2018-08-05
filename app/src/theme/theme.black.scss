@@ -3,5 +3,323 @@ $secondary: #999;
 $graybutton: #999;
 .night-theme {
 
+  $footer: #000;
+  $primary: #26C7DA;
+  $secondary: #999;
+  $graybutton: #999;
 
+  $footer-text: #333;
+  $background: #000;
+  $button-color: #878f9c;
+  $icon-buttons-dark: #65717d;
+
+  $orange: #FD6E00;
+  $green: #25E6BB;
+  $yellow: #FED600;
+  $blue: #536CFF;
+
+  ion-content, expandable-header {
+    background-color: $footer;
+    color: #fff;
+  }
+
+  .segment-button {
+    color: $primary !important;
+  }
+
+  .button-md-button, .button-ios-button {
+    background: $primary;
+  }
+
+  .toolbar-title {
+    color: #fff;
+  }
+
+  .title-container {
+    background-color: #111111;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='49' viewBox='0 0 28 49'%3E%3Cg fill-rule='evenodd'%3E%3Cg id='hexagons' fill='%23000000' fill-opacity='0.3' fill-rule='nonzero'%3E%3Cpath d='M13.99 9.25l13 7.5v15l-13 7.5L1 31.75v-15l12.99-7.5zM3 17.9v12.7l10.99 6.34 11-6.35V17.9l-11-6.34L3 17.9zM0 15l12.98-7.5V0h-2v6.35L0 12.69v2.3zm0 18.5L12.98 41v8h-2v-6.85L0 35.81v-2.3zM15 0v7.5L27.99 15H28v-2.31h-.01L17 6.35V0h-2zm0 49v-8l12.99-7.5H28v2.31h-.01L17 42.15V49h-2z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+
+  .header .toolbar-background {
+    border-color: $background;
+    background-color: $background;
+  }
+  div {
+    color: #fff;
+  }
+
+  /* Tab Color Theme*/
+  .tabbar {
+    background: $footer !important;
+  }
+  .tabs .tab-button-icon {
+    color: $footer-text !important;
+  }
+
+  .tabs .tab-button[aria-selected=true] .tab-button-icon {
+    color: $primary !important;
+  }
+
+  /* End Tab Color Theme*/
+
+  label {
+    color: #fff;
+  }
+
+  .item-md {
+
+    background-color: $background;
+  }
+
+  page-intro {
+
+    ion-slide {
+      background-color: #fff;
+      //background-image: url(../assets/imgs/bg.png);
+      //
+      //background: linear-gradient(#ffffff 50%, rgba(255,255,255,0) 0) 0 0,
+      //radial-gradient(circle closest-side, #FFFFFF 53%, rgba(255,255,255,0) 0) 0 0,
+      //radial-gradient(circle closest-side, #FFFFFF 50%, rgba(255,255,255,0) 0) 55px 0 #48B;
+      //background-size:110px 200px;
+      //background-repeat:repeat-x;
+    }
+  }
+
+  .page_title {
+    font-size: 14px;
+
+  }
+
+  .header-container {
+    background: $background;
+  }
+  .logo {
+    background: url(../assets/imgs/Logo_white.png);
+    width: 50px;
+    height: 50px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    padding-left: 55px;
+    padding-top: 13px;
+    margin-left: 10px;
+  }
+
+  app-header {
+    .button[icon-only] {
+      color: $icon-buttons-dark;
+    }
+  }
+
+  .item {
+    background: $background;
+    border-color: #4c5c71bf !important;
+
+  }
+  .item-inner {
+    background: $footer !important;
+    border-color: #4c5c71bf !important;
+  }
+  ion-list-header .item-inner {
+    background: $background !important;
+  }
+  ion-list-header ion-label {
+    color: $primary !important;
+  }
+
+  .toggle-ios.toggle-checked .toggle-icon {
+    background-color: $primary;
+  }
+
+  .back-button {
+    color: $primary;;
+  }
+
+  .no-data-txt {
+    color: #999;
+  }
+
+  .fab {
+    background: $secondary;
+  }
+  .txt-btn {
+    color: #fff !important;
+  }
+
+  .textbox {
+    background: $footer;
+    border: 0;
+    font-size: 16px;
+    color: #fff;
+  }
+
+  .item-md.item-input.ng-valid.item-input-has-value:not(.input-has-focus):not(.item-input-has-focus) .item-inner, .item-md.item-input.ng-valid.input-has-value:not(.input-has-focus):not(.item-input-has-focus) .item-inner {
+    box-shadow: inset 0 -1px 0 0 #999;
+  }
+
+  .input-has-focus {
+
+  }
+  .item-input-has-focus .label {
+    color: $primary !important;
+  }
+
+  input::-webkit-input-placeholder {
+    color: #999;
+    font-size: 14px;
+  }
+
+  .coin-card {
+    background: $footer;
+    border: 1px solid #4c5c71bf;
+  }
+
+  .toggle-checked .toggle-icon {
+    background-color: transparent !important;
+    border: 1px solid $primary;
+  }
+
+  .toggle-inner {
+    background-color: $primary !important;
+  }
+
+  .sub-val {
+    color: #999;
+  }
+
+  .ico-title {
+    color: $primary;
+  }
+
+  ion-card img {
+    background-color: #fff;
+    border-radius: 4rem;
+  }
+
+  .button-clear {
+    color: #666 !important;
+  }
+
+  .coin-card-title {
+    color: #fff;
+  }
+
+  .chip ion-label {
+    color: #fff;
+  }
+
+  .coin-chip .selected {
+    background: $primary;
+    color: #fff;
+  }
+
+  .price-number {
+    color: #fff;
+  }
+  .price-number span {
+    color: #999;
+  }
+
+  ion-segment {
+    background: #111;
+    border-top: 1px solid #222;
+  }
+  .segment-button {
+    color: #fff !important;
+  }
+
+  .segment {
+    background: #000 !important;
+  }
+  .segment-md .segment-button.activated, .segment-md .segment-button.segment-activated {
+    border-color: #999 !important;
+
+  }
+  .segment-ios .segment-button.activated, .segment-md .segment-button.segment-activated {
+    border-color: #999 !important;
+  }
+
+  .rank {
+    background: $primary;
+    color: #fff;
+  }
+
+  .main-container {
+    border: 1px solid #333;
+  }
+
+  .triangle {
+    border-color: transparent #333 transparent transparent;
+  }
+
+  .marker {
+    border-color: #666;
+    color: #999;
+  }
+
+  .f-column label {
+    color: #fff;
+  }
+
+  .f-column span {
+    color: #999;
+  }
+
+  .fab ion-icon {
+    color: #fff;
+  }
+
+  .coin-main {
+    border-top: 1px solid #333;
+  }
+
+  page-pin-screen ion-content {
+    background: #000;
+    background: -webkit-gradient(linear, left top, left bottom, from(#000), to(#333));
+    background: linear-gradient(to bottom, #000, #333);
+  }
+
+  .switch-button {
+    color: #fff;
+  }
+  .wal-name {
+    color: $primary;
+  }
+}
+
+.night-theme {
+
+  .toggle-ios .toggle-inner {
+    background-color: #fff !important;
+  }
+
+  .alert-radio-button-md .alert-radio-inner {
+    background: $primary;
+  }
+
+  .alert-radio-button-ios .alert-radio-inner {
+    border-color: $primary !important;
+  }
+  .alert-ios .alert-radio-inner {
+    background: transparent !important;
+    border-color: #fff !important;
+  }
+
+  .alert-radio-icon {
+    border-color: $primary !important;
+  }
+
+  .alert-button {
+    color: $primary !important;
+  }
+  .alert-wrapper, .action-sheet-group {
+    background: #000 !important;
+    border: 1px solid #4c5c71bf;
+  }
+  h2 {
+    color: #fff;
+  }
+
+  .alert-radio-label {
+    color: #999 !important;
+  }
 }

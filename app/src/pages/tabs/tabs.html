@@ -1,5 +1,5 @@
-<ion-tabs>
+<ion-tabs (ionChange)="transition($event)">
   <ion-tab [root]="tab1Root" tabIcon="folder-open"></ion-tab>
-  <ion-tab [root]="tab2Root" tabIcon="eye"></ion-tab>
-  <ion-tab [root]="tab3Root" tabIcon="settings"></ion-tab>
+  <ion-tab [root]="tab3Root" tabIcon="eye"></ion-tab>
+  <ion-tab [root]="tab4Root" tabIcon="settings"></ion-tab>
 </ion-tabs>

@@ -1,0 +1,38 @@
+.ios, .md {
+
+  page-intro {
+
+    .slide-zoom{
+      padding: 4rem;
+    }
+    ion-slide img {
+      height: 15rem;
+      width: 15rem;
+    }
+    ion-slide h1 {
+      color: #666;
+      margin-top: 10rem;
+      margin-bottom: 4rem;
+    }
+    ion-slide span {
+      color: #999;
+      font-size: 15px;
+    }
+
+    .footer {
+      position: absolute;
+      bottom: 0.5rem;
+      right: 0.5rem;
+      z-index: 999;
+    }
+    .swiper-pagination {
+      text-align: left;
+      margin-left: 2rem;
+    }
+    ion-icon{
+      font-size: 3rem;
+      color: red;
+    }
+  }
+
+}

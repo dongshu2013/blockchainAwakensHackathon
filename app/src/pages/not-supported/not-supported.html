@@ -1,0 +1,16 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Upgrade Required</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding [hidden]="isHidden">
+  <ion-label style="white-space: initial!important;
+    font-size: 20px;">
+    We have recently made an important update to our app.
+    Please update to latest version to continue
+  </ion-label>
+  <button ion-button icon-left large color="primary2" (click)="update()">
+    Update now
+  </button>
+</ion-content>

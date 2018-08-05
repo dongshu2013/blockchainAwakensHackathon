@@ -1,0 +1,13 @@
+page-policy {
+  ion-content {
+    margin-top: 0rem;
+  }
+
+  ion-header::after{
+    background-image: none !important;
+
+  }
+  .toolbar-content{
+    margin-bottom: 2rem;
+  }
+}

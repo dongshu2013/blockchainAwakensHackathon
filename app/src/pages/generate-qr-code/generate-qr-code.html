@@ -1,0 +1,32 @@
+<!--
+  Generated template for the GenerateQrCodePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Recovery Code</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <div style="padding: 1rem">
+    <div class="qrcode">
+      <!--<ngx-qrcode  [(qrc-value)]="value" [qrc-version]=5 [qrc-correction-level]="'L'" style="width: 100%"></ngx-qrcode>-->
+
+      <ngx-qrcode [qrc-element-type]="elementType" [qrc-value] = "value">
+      </ngx-qrcode>
+    </div>
+    <p>
+      Save this QR code. You can use this QR code to recover or port the app into a different mobile.
+    </p>
+  </div>
+
+
+
+
+</ion-content>

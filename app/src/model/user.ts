@@ -7,8 +7,4 @@ export class User {
   public timezone: string;
   public isActive: boolean;
   public uuid:string;
-
-  constructor(){
-    this.userId = 1;
-  }
 }

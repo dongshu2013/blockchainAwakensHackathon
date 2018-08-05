@@ -1,155 +1,113 @@
 page-home {
-
-
-  @import url(https://fonts.googleapis.com/css?family=Nunito);
-  body{
-    overflow:hidden;
-    background: -webkit-linear-gradient(top, #5799db 0%,#3f8edd 100%);
-    //background: -moz-linear-gradient(top, #5799db 0%,#3f8edd 100%);
-    height:100vh;
+  ion-content {
+    margin-top: 5rem !important;
   }
 
-  .cards{
-    width:400px;
-    height:300px;
-    position:absolute;
-    left:0;
-    right:0;
-    top:50%;
-    margin:auto;
-    transform:translateY(-50%);
-    h1{
-      margin:0;
-      font-size:24px;
-      text-align:center;
-      font-weight:500;
-      color:white;
-      font-family: 'Nunito', sans-serif;
-    }
-    h2{
-      margin:0;
-      font-size:14px;
-      text-align:center;
-      font-weight:200;
-      color: #A4C9EF;
-      font-family: 'Nunito', sans-serif;
-    }
-    &_inner{
-      perspective:800px;
-      position:relative;
-      top:60px;
-      .wrap{
-        width: 220px;
-        margin: 0 auto;
-        position:relative;
-        transform-style: preserve-3d;
-      }
-      .invalid{
-        pointer-events:none;
-        left:-180px !important;
-        opacity:0;
-        transition:all .23s;
-      }
-      .animate{
-        transition:all .2s cubic-bezier(0.560, 2.150, 0.250, 0.715);
-      }
-      .card_in{
-        opacity:0;
-        transform:scale(1);
-        margin-top:40px;
-        animation: pop .6s .1s cubic-bezier(0.560, 1.750, 0.250, 0.715);
-        right:0;
-      }
-      @keyframes pop{
-        0%{margin-top:40px;opacity:0}
-        100%{margin-top:0px;opacity:1}
-
-      }
-      .card_in_two{
-        opacity:1;
-        transform:scale(1);
-        margin-top:40px;
-        transition:all .2s cubic-bezier(0.560, 2.150, 0.250, 0.715);
-        margin-top:0px;
-      }
-      &__card{
-        transition:transform .2s cubic-bezier(0.560, 2.150, 0.250, 0.715);
-        position:absolute;
-        margin-top:0px;
-        left:0;
-        right:0;
-        background: -moz-linear-gradient(top, rgba(255,255,255,1) 0%,rgba(247,247,247,1) 100%);
-        top:50%;
-        margin:auto;
-        width:220px;
-        height:130px;
-        background: -webkit-linear-gradient(top, rgba(255,255,255,1) 0%,rgba(247,247,247,1) 100%);
-        border-radius:12px;
-        box-shadow: 0px 2px 12px rgba(0, 0, 0, 0.22);
-        cursor:pointer;
-        @for $i from 1 through 4{
-          &:nth-of-type(#{$i}){
-            top:(10px * $i);
-            transform:translateZ(0px + ($i * 60) - 240px)
-          }
-        }
-      }
-    }
-  }
-  .maestro .logo{
-    background:url('https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/MasterCard_logo.png/640px-MasterCard_logo.png')
-  }
-  .paypal .logo{
-    background:url('https://www.paypalobjects.com/webstatic/mktg/Logo/pp-logo-200px.png?01AD=3B28EURZY9Emi4KsrC-JAvZqhykcobygL70miwLcjbS3qGuX1m1ZgsQ&01RI=08D0AE0331EC9B2&01NA=');
-    left: 58px;
-    background-size: contain !important;
-    top: 49px;
-  }
-  .logo{
-    width: 100px;
-    height: 70px;
-    position: relative;
-    background-repeat: no-repeat !important;
-    left: 62px;
-    background-size: contain !important;
-    top: 29px;
-  }
-  .mastercard .logo{
-    left: 73px;
-    background-size: contain !important;
-    top: 44px;
-    width: 70px;
-    height: 70px;
-    background:url('https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/Maestro_2016.svg/1200px-Maestro_2016.svg.png')
-  }
-  .visa .logo{
-    left: 58px;
-    background-size: contain !important;
-    top: 45px; background:url('https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Visa_Inc._logo.svg/2000px-Visa_Inc._logo.svg.png')
+  .highcharts-credits{
+    display: none;
   }
 
-  .points{
+  .scroll-content {
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+  }
+
+  ion-item {
+    width: 92%;
+    margin: 4%;
+    padding-left: 10px !important;
+    margin-bottom: 10px;
+    background-color: #fff;
+    opacity: 0.7;
+    font-size: 0.9em;
+    transition: 0.2s linear;
+  }
+
+  .sub-header {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+  }
+  .logo {
+
+  }
+  .sum{
+
+  }
+
+  .card{
+    margin-bottom: 1rem;
+    background: transparent;
+  }
+  .coin-title{
+    border-bottom:0.5px solid #333;padding-bottom: 2rem;padding: 1rem;color: #999;
+  }
+
+  .coin-main {
+    border-top:0.5px solid #333;margin-top: -5rem;margin-bottom: 5rem;
+  }
+
+  .add-wallet{
+    right:1rem;margin-top: -1.2rem;
+  }
+
+  .coin-chip{
+    display: flex;
+    justify-content: space-evenly;
+    border-bottom: 0.5px solid #333;
+    padding: 0.5rem;
+  }
+  .coin-chip .selected {
+    border-radius: 16px;
+    height: 32px;
+    font-size: 13px;
+    line-height: 32px;
+    margin: 2px 0;
+  }
+
+  .chart-main-title {
+    margin-top: -5rem;
     position: absolute;
-    left: 0;
-    right: 0;
-    margin: auto;
-    width: 100px;
-    top: 50%;
-    height: 0px;
-    .active{
-      background: #245484;
-    }
-    &_point{
-      float:left;
-      width:8px;
-      display:inline-block;
-      border-radius:10px;
-      height:8px;
-      background:#69AEF3;
-      margin-right:4px;
-      position:relative;
-      top:156px;
-      left:26px
-    }
+    top: 13rem;
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    width: 100%;
+  }
+  .chart-main-title span:first-child{
+   font-size: 26px;
+  }
+  .chart-main-title span:nth-child(2){
+    font-size: 20px;
+    color: #999;
+  }
+  .highcharts-title{
+    display: none;
+  }
+
+  .list-layout{
+    margin: 0px !important;
+  }
+  .list-layout .coin-card{
+    border-bottom: 0px !important;
+  }
+  .chip-layout{
+    border-bottom: 0px;
+  }
+  .has-refresher > .scroll-content{
+    border: 0px;
+  }
+
+  .switch-button{
+    font-size: 25px;
+  }
+  .opacity{
+    opacity: 0;
+  }
+
+  .wal-name {
+    font-size: 15px !important;
   }
 }
