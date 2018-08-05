@@ -1,0 +1,28 @@
+app-header{
+  .header-container{
+    height: 5rem;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .button[icon-only]{
+    width: 24px;
+  }
+
+  .text{
+    font-size: 16px;
+    margin-top: 10px;
+    margin: 1.5rem;
+  }
+  .scroll-content{
+    border:0px;
+  }
+
+  .logo-center {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+  }
+}
+
