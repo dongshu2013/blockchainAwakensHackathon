@@ -1,0 +1,113 @@
+$primary: #536CFF;
+.light-theme {
+
+  $icon-buttons-light: #3276AA;
+  $footer-text: #65717d;
+
+  $primary: #536CFF;
+  $orange: #FD6E00;
+  $green: #25E6BB;
+  $yellow: #FED600;
+  $blue: #536CFF;
+
+  .logo{
+    background: url(../assets/imgs/Logo_black.png);
+    width: 200px;
+    height: 50px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    padding-left: 55px;
+    padding-top: 13px;
+    margin-left: 10px;
+  }
+
+
+  ion-content {
+    background-color: #f8f8f8;
+  }
+
+  .toolbar-title {
+    color: #fff;
+  }
+  .title{
+    color: #fff;
+  }
+
+  .header-container{
+    background: $blue;
+  }
+
+  .header .toolbar-background {
+    border-color: #ff0fff;
+    background-color: $blue;
+  }
+  div {
+    color: #333;
+  }
+
+  /* Tab Color Theme*/
+  .tabbar {
+    background: $blue !important;
+  }
+  .tabs .tab-button-icon {
+    color: #fff !important;
+  }
+
+  .tabs-ios .tab-button[aria-selected=true] .tab-button-icon {
+    color: $primary !important;
+  }
+
+  .tabs-md .tab-button[aria-selected=true] .tab-button-icon {
+    color: #fff !important;
+  }
+
+  .toolbar-background {
+    background-color: #fff;
+  }
+
+  app-header{
+    .button[icon-only] {
+      color: #fff;
+    }
+  }
+
+  ion-list-header ion-label {
+    color: $blue !important;
+  }
+
+  .toggle .toggle-checked .toggle-icon {
+    background-color: $blue;
+  }
+
+  .no-data-txt {
+    color: #666;
+  }
+
+  .sub-val {
+    color: #333;
+  }
+
+  .button-clear {
+    color: $primary !important;
+  }
+
+  .coin-card-title {
+    color: #fff;
+  }
+
+  .chip ion-label{
+    color: #fff;
+  }
+
+  .coin-chip .selected {
+    background: $primary;
+    color: #fff;
+  }
+
+  .price-number{
+    color: #fff;
+  }
+  .price-number span{
+    color: #999;
+  }
+}

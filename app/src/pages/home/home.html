@@ -1,30 +1,64 @@
-<ion-header>
-  <ion-navbar>
-    <ion-title>Home</ion-title>
-  </ion-navbar>
-</ion-header>
+<app-header [showText]="subHeader" [text]="totalPrice" [subtext]="totalPrice" [isCurrency]="isCurrency" [showButtons]="walletId"></app-header>
+<ion-header *ngIf="!subHeader">
 
-<ion-content padding>
-  <div class="cards">
-    <div class="cards_inner">
-      <div class="wrap">
+<expandable-header *ngIf="!switchEnable" [scrollArea]="mycontent" headerHeight="300" [hidden]="rawCoins.length==0" [class.opacity]="switchEnable">
+    <div class="sub-header" *ngIf="!subHeader">
+      <chart *ngIf="options !=null" [options]="options" type="chart" style="height: 400px;margin-top: 1rem;"></chart>
 
-        <div class="cards_inner__card paypal ui-draggable ui-draggable-handle ui-draggable-disabled" (swipe)='someFunction($event)'>
-          <div class="logo"></div>
-        </div>
-        <div class="cards_inner__card visa ui-draggable ui-draggable-handle ui-draggable-disabled"
-             style="transform: translateZ(-120px);">
-          <div class="logo"></div>
-        </div>
-        <div class="cards_inner__card mastercard ui-draggable ui-draggable-handle ui-draggable-disabled"
-             style="transform: translateZ(-60px);">
-          <div class="logo"></div>
-        </div>
-        <div class="cards_inner__card maestro ui-draggable ui-draggable-handle"
-             style="transform: rotate(0deg); width: 220px; right: auto; left: 0px; top: 40px;">
-          <div class="logo"></div>
-        </div>
+      <div class="chart-main-title">
+        <span class="wal-name">{{walletName}}</span>
+        <span>{{totalPrice | currency:currentCurrency:'true'}}</span>
+        <span>{{totalPrice/2 | currency:currentCurrency:'true'}}</span>
+        <button ion-button icon-only (click)="switchWallet()" clear>
+          <ion-icon name='ios-albums-outline' class="switch-button"></ion-icon>
+        </button>
       </div>
     </div>
+
+    <div></div>
+    <ion-fab #fab class="add-wallet">
+      <button ion-fab (click)="addWallet()">
+        <ion-icon name="add"></ion-icon>
+      </button>
+    </ion-fab>
+  </expandable-header>
+</ion-header>
+<ion-content padding fullscreen #mycontent [class.scrolled]='subHeader'>
+  <ion-refresher (ionRefresh)="reLoadData($event)" color="white" style="z-index: 9999;">
+    <ion-refresher-content refreshingSpinner="bubbles">
+    </ion-refresher-content>
+  </ion-refresher>
+  <div *ngIf="rawCoins.length >0 " class="coin-main" (swipe)="swipe($event)">
+    <div class="coin-chip" [class.chip-layout]="currentLayout==='list'">
+      <ion-chip [class.selected]="currentTimeRange==1" tappable (click)="chipClicked(1)">
+        <ion-label>1H</ion-label>
+      </ion-chip>
+
+      <ion-chip [class.selected]="currentTimeRange==2" tappable (click)="chipClicked(2)">
+        <ion-label>24H</ion-label>
+      </ion-chip>
+
+      <ion-chip [class.selected]="currentTimeRange==3"  tappable (click)="chipClicked(3)">
+        <ion-label>7D</ion-label>
+      </ion-chip>
+    </div>
+    <div *ngFor="let n of this.rawCoins" class="card" [class.list-layout]="currentLayout==='list'" >
+      <coin-card [n]="n.coin" [currentTimeRange]="currentTimeRange" [currentLayout]="currentLayout" [selectedCurrency]="currentCurrency" *ngIf="n.coin"></coin-card>
+    </div>
   </div>
+  <div *ngIf="rawCoins && rawCoins.length==0 && isLoadingDone" class="no-data-container">
+    <ion-label class="no-data" style="margin-top: 0px;">
+      No Wallet
+    </ion-label>
+    <span class="no-data-txt">Add your first wallet by clicking + button below</span>
+    <ion-fab middle center #fab>
+      <button ion-fab (click)="open()">
+        <ion-icon name="add"></ion-icon>
+      </button>
+    </ion-fab>
+  </div>
+</ion-content>
+
+<ion-content padding *ngIf="switchEnable">
+  <card-switch [walletList]="walletLists" (onSelect)="selectWallet($event)"></card-switch>
 </ion-content>

@@ -1,4 +1,296 @@
 $primary: #26d6a5;
 .dark-theme {
 
+  $refresher-icon-color: #fff;
+
+  $footer: #344152;
+  $footer-text: #65717d;
+  $background: #243142;
+  $button-color: #878f9c;
+  $icon-buttons-dark: #65717d;
+
+  $primary: #26d6a5;
+  $orange: #FD6E00;
+  $green: #25E6BB;
+  $yellow: #FED600;
+  $blue: #536CFF;
+
+  ion-content, expandable-header {
+    background-color: $background;
+    color: #fff;
+  }
+  .button-md-button, .button-ios-button {
+    background: $primary;
+  }
+
+  .toolbar-title {
+    color: #fff;
+  }
+
+  .title-container {
+    background-color: #344152;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='49' viewBox='0 0 28 49'%3E%3Cg fill-rule='evenodd'%3E%3Cg id='hexagons' fill='%23243142' fill-opacity='0.17' fill-rule='nonzero'%3E%3Cpath d='M13.99 9.25l13 7.5v15l-13 7.5L1 31.75v-15l12.99-7.5zM3 17.9v12.7l10.99 6.34 11-6.35V17.9l-11-6.34L3 17.9zM0 15l12.98-7.5V0h-2v6.35L0 12.69v2.3zm0 18.5L12.98 41v8h-2v-6.85L0 35.81v-2.3zM15 0v7.5L27.99 15H28v-2.31h-.01L17 6.35V0h-2zm0 49v-8l12.99-7.5H28v2.31h-.01L17 42.15V49h-2z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+
+  .header .toolbar-background {
+    border-color: #ff0fff;
+    background-color: $background;
+  }
+  div {
+    color: #fff;
+  }
+
+  /* Tab Color Theme*/
+  .tabbar {
+    background: $footer !important;
+  }
+  .tabs .tab-button-icon {
+    color: $footer-text !important;
+  }
+
+  .tabs .tab-button[aria-selected=true] .tab-button-icon {
+    color: $primary !important;
+  }
+
+  /* End Tab Color Theme*/
+
+  label {
+    color: #fff;
+  }
+
+  .item-md {
+
+    background-color: $background;
+  }
+
+  page-intro {
+
+    ion-slide {
+      background-color: #fff;
+      //background-image: url(../assets/imgs/bg.png);
+      //
+      //background: linear-gradient(#ffffff 50%, rgba(255,255,255,0) 0) 0 0,
+      //radial-gradient(circle closest-side, #FFFFFF 53%, rgba(255,255,255,0) 0) 0 0,
+      //radial-gradient(circle closest-side, #FFFFFF 50%, rgba(255,255,255,0) 0) 55px 0 #48B;
+      //background-size:110px 200px;
+      //background-repeat:repeat-x;
+    }
+  }
+
+  .page_title {
+    font-size: 14px;
+
+  }
+
+  .header-container {
+    background: $background;
+  }
+  .logo {
+    background: url(../assets/imgs/Logo_white.png);
+    width: 50px;
+    height: 50px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    padding-left: 55px;
+    padding-top: 13px;
+    margin-left: 10px;
+  }
+
+  app-header {
+    .button[icon-only] {
+      color: $icon-buttons-dark;
+    }
+  }
+
+  .item {
+    background: $background;
+    border-color: #4c5c71bf !important;
+
+  }
+  .item-inner {
+    background: $footer !important;
+    border-color: #4c5c71bf !important;
+  }
+  ion-list-header .item-inner {
+    background: $background !important;
+  }
+  ion-list-header ion-label {
+    color: #4c5c71bf !important;
+  }
+
+  .toggle-ios.toggle-checked .toggle-icon {
+    background-color: $background;
+  }
+
+  .back-button {
+    color: $primary;
+  }
+
+  .no-data-txt {
+    color: #999;
+  }
+
+  .fab {
+    background: $primary;
+  }
+  .txt-btn {
+    color: #fff !important;
+  }
+
+  .textbox {
+    background: $footer;
+    border: 0;
+    font-size: 16px;
+    color: #fff;
+  }
+
+  input::-webkit-input-placeholder {
+    color: #999;
+    font-size: 14px;
+  }
+
+  .coin-card {
+    background: $footer;
+  }
+
+  .toggle-checked .toggle-icon {
+    background-color: #26d6a5 !important;
+  }
+
+  .toggle-inner {
+    background-color: #fff !important;
+  }
+  .toggle-checked .toggle-inner {
+    background-color: $primary !important;
+  }
+
+  .toggle-checked .toggle-icon {
+    border: 1px solid $primary !important;
+    background: transparent !important;
+  }
+  .sub-val {
+    color: #999;
+  }
+
+  .button-clear {
+    color: $primary !important;
+  }
+
+  .coin-card-title {
+    color: #fff;
+  }
+
+  .chip ion-label {
+    color: #fff;
+  }
+
+  .coin-chip .selected {
+    background: $primary;
+    color: #fff;
+  }
+
+  .price-number {
+    color: #fff;
+  }
+  .price-number span {
+    color: #999;
+  }
+
+  ion-segment {
+    background: #172131;
+  }
+
+  .segment {
+    background: #344152 !important;
+  }
+
+  .segment-button {
+    color: #fff !important;
+  }
+
+  .segment-md .segment-button.activated, .segment-md .segment-button.segment-activated {
+    border-color: #999 !important;
+  }
+  .segment-ios .segment-button.activated, .segment-md .segment-button.segment-activated {
+    border-color: #999 !important;
+  }
+
+  .rank {
+    background: $primary;
+    color: #fff;
+  }
+
+  .main-container {
+    border: 1px solid #999;
+  }
+
+  .marker {
+    border: 2px solid #666;
+    color: #999;
+  }
+
+  .f-column label {
+    color: #fff;
+  }
+
+  .f-column span {
+    color: #999;
+  }
+
+  .fab ion-icon {
+    color: #fff;
+  }
+
+  .coin-main {
+    border-top: 1px solid #ccc;
+  }
+
+  .switch-button {
+    color: #fff;
+  }
+
+  .wal-name {
+    color: $primary;
+  }
+}
+
+.dark-theme {
+
+  .toggle-ios .toggle-inner {
+    background-color: #fff !important;
+  }
+
+  .alert-radio-button-md .alert-radio-inner {
+    background: #26d6a5;
+  }
+
+  .alert-radio-button-ios .alert-radio-inner {
+    border-color: #26d6a5 !important;
+  }
+
+  .alert-radio-icon {
+    border-color: #26d6a5 !important;
+  }
+  .alert-ios .alert-radio-inner {
+    background: transparent !important;
+    border-color: #fff !important;
+  }
+
+  .alert-button {
+    color: #26d6a5 !important;
+  }
+  .alert-wrapper {
+    background: #243142 !important;
+  }
+  h2 {
+    color: #fff;
+  }
+
+  .alert-radio-label {
+    color: #999 !important;
+  }
+}
+
+.dark-theme > .alert-radio-button-md > .alert-radio-inner {
+  background: #26d6a5 !important;
 }

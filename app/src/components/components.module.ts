@@ -6,15 +6,23 @@ import { CoinCardComponent } from './coin-card/coin-card';
 import {ChartModule} from "angular2-highcharts";
 import { TransactionCardComponent } from './transaction-card/transaction-card';
 import { TokenHolderCardComponent } from './token-holder-card/token-holder-card';
+import {CardSwitchComponent} from "./card-switch/card-switch";
+import { NewsCardComponent } from './news-card/news-card';
 @NgModule({
-	declarations: [HeaderComponent, ExpandableHeaderComponent,
+	declarations: [HeaderComponent,
+    ExpandableHeaderComponent,
     CoinCardComponent,
     TransactionCardComponent,
-    TokenHolderCardComponent],
+    CardSwitchComponent,
+    TokenHolderCardComponent,
+    NewsCardComponent],
 	imports: [IonicModule,ChartModule],
-	exports: [HeaderComponent, ExpandableHeaderComponent,
+	exports: [HeaderComponent,
+    ExpandableHeaderComponent,
     CoinCardComponent,
+    CardSwitchComponent,
     TransactionCardComponent,
-    TokenHolderCardComponent]
+    TokenHolderCardComponent,
+    NewsCardComponent]
 })
 export class ComponentsModule {}

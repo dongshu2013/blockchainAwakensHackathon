@@ -13,6 +13,10 @@ import {RestProvider} from "../../providers/rest/rest";
   template: `
     <ion-list [class]="selectedTheme">
       <button ion-item (click)="edit()">
+        <ion-icon name="ios-albums-outline"></ion-icon>
+        Switch Wallet
+      </button>
+      <button ion-item (click)="edit()">
         <ion-icon name="md-create"></ion-icon>
         Edit Wallet
       </button>

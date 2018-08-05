@@ -15,6 +15,67 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class CoinWatchPage {
 
+  public news =[
+    {
+      from: 'My Wallet',
+      to: 'Other Wallet',
+      val: 3,
+      gas: '0.01ETH',
+      balance: '200ETH'
+    },
+    {
+      from: 'Victor',
+      to: 'Mike',
+      val: 4,
+      gas: '0.05ETH',
+      balance: '100ETH'
+    },
+    {
+      from: 'Victor',
+      to: 'Mike',
+      gas: '0.05ETH',
+      val: 1,
+      balance: '100ETH'
+    },
+    {
+      from: 'Victor',
+      to: 'Mike',
+      val: 5,
+      gas: '0.05ETH',
+      balance: '100ETH'
+    },
+    {
+      from: 'Victor',
+      to: 'Mike',
+      val: 21,
+      gas: '0.05ETH',
+      balance: '100ETH'
+    },
+    {
+      from: 'Victor',
+      to: 'Mike',
+      val: 3,
+      gas: '0.05ETH',
+      balance: '100ETH'
+    },
+    {
+      from: 'Victor',
+      to: 'Mike',
+      val: 33,
+      gas: '0.05ETH',
+      balance: '100ETH'
+    },
+    {
+      from: 'Victor',
+      to: 'Mike',
+      val: 34,
+      gas: '0.05ETH',
+      balance: '100ETH'
+    }
+
+
+  ]
+
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 

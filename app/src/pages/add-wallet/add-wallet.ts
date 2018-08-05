@@ -1,5 +1,5 @@
 import {Component, NgZone} from '@angular/core';
-import {AlertController, IonicPage, NavController, NavParams, ToastController} from 'ionic-angular';
+import {AlertController, Events, IonicPage, NavController, NavParams, ToastController} from 'ionic-angular';
 import {QRScanner, QRScannerStatus} from "@ionic-native/qr-scanner";
 import {Clipboard} from "@ionic-native/clipboard";
 import {RestProvider} from "../../providers/rest/rest";
@@ -34,6 +34,7 @@ export class AddWalletPage {
               public translate: TranslateService,
               private qrScanner: QRScanner,
               public authService: RestProvider,
+              public events: Events,
               private clipboard: Clipboard,
               private alertCtrl: AlertController,
               private _ngZone: NgZone,
@@ -56,9 +57,7 @@ export class AddWalletPage {
     console.log('ionViewDidLoad AddWalletPage');
   }
 
-
   portSelect() {
-    debugger
     if( this.portfolio === -1) {
       this.presentAlert();
     }
@@ -180,7 +179,7 @@ export class AddWalletPage {
     this.authService.createPortfolio(name).then(data => {
       if (data) {
         this.portfolio = data['portfolioId'];
-        this.getPortfolios();
+        //this.getPortfolios();
       } else {
         this.presentToast('We are facing issue while submitting feedback at the moment. Please try again after sometime. You can also contact us on support@IcoAlarmApp.com');
       }
@@ -191,6 +190,7 @@ export class AddWalletPage {
     this.authService.createWallet(this.walletAddress, this.nickName, 'ETH', this.portfolio).then(data => {
       if (data) {
         this.navCtrl.popToRoot();
+        this.events.publish('wallet:refresh');
         this.presentToast('Your new Wallet has been created. We are now scanning the wallet.');
       } else {
         this.presentToast('We are facing issue while registering a new wallet. Please try again later');

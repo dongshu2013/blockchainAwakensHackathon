@@ -1,0 +1,9 @@
+<ion-slides loop="false" spaceBetween="150" speed="500" pager="true" spaceBetween="0" direction="vertical" slidesPerView="2" effect="coverflow" pager="false" zoom="false" centeredSlides="true">
+
+  <ion-slide *ngFor="let w of walletList" class="somecard">
+    <div class="main-card" (click)="cardClick(w.walletId)">
+      <h2>{{w.name}}</h2>
+      <div>{{w.address}}</div>
+    </div>
+  </ion-slide>
+</ion-slides>

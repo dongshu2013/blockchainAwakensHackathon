@@ -1,0 +1,25 @@
+<ion-card>
+  <ion-card-content style="padding: 0px 12px !important;">
+    <ion-grid>
+      <ion-row>
+        <ion-col col-12 style="display:flex;">
+          <h2 class="coin-card-title">{{news.from}} </h2> Transferred {{news.val}} to {{news.to}}
+        </ion-col>
+      </ion-row>
+      <ion-row style="width: 100%">
+        <ion-col col-4  class="flex-column f-column">
+          <label>Gas</label>
+          <span>{{news.gas}}</span>
+        </ion-col>
+        <ion-col col-4  class="flex-column f-column">
+          <label>Current Balance</label>
+          <span>{{news.balance}}</span>
+        </ion-col>
+        <ion-col col-4  class="flex-column f-column">
+          <label>Total Coins</label>
+          <span>10</span>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-card-content>
+</ion-card>
