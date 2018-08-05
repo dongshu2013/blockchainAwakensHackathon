@@ -9,7 +9,7 @@ import {Storage} from '@ionic/storage';
 @Injectable()
 export class RestProvider {
 
-  apiUrl = '';//http://walletalarmapi-env.iuic8r3ihf.us-west-1.elasticbeanstalk.com';
+  apiUrl = '';
   public user: User;
   public bucket: any;
   public ipAddress: any;
@@ -34,8 +34,8 @@ export class RestProvider {
       }
       this.AWSService = (<any>window).AWS;
 
-      this.AWSService.config.accessKeyId = 'AKIAIMIOBALWCOG37JRQ';
-      this.AWSService.config.secretAccessKey = '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';
+      this.AWSService.config.accessKeyId = '';
+      this.AWSService.config.secretAccessKey = '';
       this.bucket = new this.AWSService.S3({params: {Bucket: 'walletalarm-images'}});
 
       let urlParams = {Bucket: 'walletalarm-images', Key: 'app.json'};
@@ -49,7 +49,7 @@ export class RestProvider {
             _self.apiUrl = JSON.parse(xobj.responseText).serverurl;
             resolve(true);
           } else {
-            _self.apiUrl = 'http://walletalarmapi-env.iuic8r3ihf.us-west-1.elasticbeanstalk.com';
+            _self.apiUrl = '';
           }
         });
         xobj.send(null);
@@ -59,7 +59,7 @@ export class RestProvider {
 
   loadWebURL() {
     this.user = new User();
-    this.apiUrl = 'http://walletalarmapi-env.iuic8r3ihf.us-west-1.elasticbeanstalk.com'
+    this.apiUrl = ''
   }
 
   loginOnly() {
