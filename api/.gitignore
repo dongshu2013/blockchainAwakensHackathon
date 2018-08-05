@@ -1,8 +1,0 @@
-.idea
-.DS_Store
-target/
-*.iml
-*.log.*
-!/*.log
-*.log
-src/main/docker/*.zip
