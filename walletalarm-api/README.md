@@ -5,6 +5,8 @@
 
 **Run API server locally** 
 
+This project needs a running instance of MySQL locally. Run the db scripts in the 'db' folder before running the api
+
 <code>
 mvn install:install-file -Dfile=lib/dropwizard-jobs-core-3.0.1-SNAPSHOT.jar -DgroupId=de.spinscale.dropwizard -DartifactId=dropwizard-jobs-core -Dversion=3.0.1-SNAPSHOT -Dpackaging=jar
 
