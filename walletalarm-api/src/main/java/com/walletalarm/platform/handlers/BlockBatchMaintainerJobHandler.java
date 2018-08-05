@@ -1,10 +1,6 @@
 package com.walletalarm.platform.handlers;
 
-import com.walletalarm.platform.core.Job;
-import com.walletalarm.platform.core.JobStatus;
-import com.walletalarm.platform.core.JobType;
 import com.walletalarm.platform.db.dao.BlockBatchDAO;
-import com.walletalarm.platform.db.dao.JobDAO;
 import com.walletalarm.platform.db.dao.TransactionDAO;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -28,27 +24,15 @@ public class BlockBatchMaintainerJobHandler {
         FORMAT.setTimeZone(TimeZone.getTimeZone("UTC"));
     }
 
-    public static int doBlockBatchMaintenance(JobDAO jobDAO, BlockBatchDAO blockBatchDAO, TransactionDAO transactionDAO,
-                                              Web3j web3j, long configMaxBlockNumber, long configLatestBlockNumber,
-                                              boolean configTestMode) {
-        //Create job info
-        Job job = new Job();
-        job.setStatus(JobStatus.STARTED);
-        job.setType(JobType.BLOCK_BATCH_MAINTAINER);
-        int jobId = jobDAO.create(job);
-
+    public static void doBlockBatchMaintenance(BlockBatchDAO blockBatchDAO, TransactionDAO transactionDAO,
+                                               Web3j web3j, long configMaxBlockNumber, long configLatestBlockNumber,
+                                               boolean configTestMode) {
         LOGGER.debug("Starting BLOCK_BATCH_MAINTAINER Job. Start time - " + DATE_TIME_FORMATTER.format(LocalDateTime.now()));
 
         doBlockBatchScheduling(blockBatchDAO, transactionDAO, web3j, configMaxBlockNumber, configLatestBlockNumber,
                 configTestMode);
 
         LOGGER.debug("Finished BLOCK_BATCH_MAINTAINER Job. End time - " + DATE_TIME_FORMATTER.format(LocalDateTime.now()));
-
-        //Update job info
-        job.setJobId(jobId);
-        job.setStatus(JobStatus.FINISHED);
-        jobDAO.update(job);
-        return jobId;
     }
 
     private static void doBlockBatchScheduling(BlockBatchDAO blockBatchDAO, TransactionDAO transactionDAO, Web3j web3j,

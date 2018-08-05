@@ -2,23 +2,17 @@ package com.walletalarm.platform.jobs;
 
 import com.walletalarm.platform.ApiConfiguration;
 import com.walletalarm.platform.db.dao.BlockBatchDAO;
-import com.walletalarm.platform.db.dao.JobDAO;
 import com.walletalarm.platform.db.dao.NotificationDAO;
 import com.walletalarm.platform.db.dao.TransactionDAO;
 import com.walletalarm.platform.handlers.NotificationJobHandler;
 import de.spinscale.dropwizard.jobs.Job;
-import org.quartz.JobExecutionContext;
-import org.quartz.JobExecutionException;
-import org.quartz.SchedulerContext;
-import org.quartz.SchedulerException;
+import de.spinscale.dropwizard.jobs.annotations.On;
+import org.quartz.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-/**
- * Created by patankar on 9/19/17.
- */
-//@On("0/10 * * * * ?") // Run every 10 seconds
-//@DisallowConcurrentExecution
+@On("0/5 * * * * ?") // Run every 5 seconds
+@DisallowConcurrentExecution
 public class NotificationJob extends Job {
     private static final Logger LOGGER = LoggerFactory.getLogger(NotificationJob.class);
 
@@ -29,7 +23,6 @@ public class NotificationJob extends Job {
         TransactionDAO transactionDAO;
         NotificationDAO notificationDAO;
         String server;
-        JobDAO jobDAO;
         SchedulerContext schedulerContext;
         try {
             schedulerContext = context.getScheduler().getContext();
@@ -42,13 +35,12 @@ public class NotificationJob extends Job {
         transactionDAO = (TransactionDAO) schedulerContext.get("TransactionDAO");
         server = (String) schedulerContext.get("Server");
         notificationDAO = (NotificationDAO) schedulerContext.get("NotificationDAO");
-        jobDAO = (JobDAO) schedulerContext.get("JobDAO");
         if (apiConfiguration == null || apiConfiguration.getFcmToken() == null || blockBatchDAO == null ||
-                notificationDAO == null || jobDAO == null || server == null || transactionDAO == null) {
+                notificationDAO == null || server == null || transactionDAO == null) {
             LOGGER.error("One of JobExecutionContext objects is null");
             throw new JobExecutionException("One of JobExecutionContext objects is null");
         }
-        NotificationJobHandler.doNotificationJob(jobDAO, blockBatchDAO, notificationDAO, transactionDAO, server,
+        NotificationJobHandler.doNotificationJob(blockBatchDAO, notificationDAO, transactionDAO, server,
                 apiConfiguration.getFcmToken());
         LOGGER.debug("notification job done");
     }

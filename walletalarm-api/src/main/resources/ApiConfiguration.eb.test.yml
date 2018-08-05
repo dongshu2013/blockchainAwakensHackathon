@@ -1,0 +1,92 @@
+# Logging settings.
+logging:
+
+  # The default level of all loggers. Can be OFF, ERROR, WARN, INFO, DEBUG, TRACE, or ALL.
+  level: INFO
+  appenders:
+      - type: console
+      - type: file
+        threshold: ALL
+        logFormat: "%-6level [%d{HH:mm:ss.SSS}] [%t] %logger{5} - %X{code} %msg %n"
+        currentLogFilename: /mnt/logs/walletalarm-api/walletalarm-api.log
+        archivedLogFilenamePattern: /mnt/logs/walletalarm-api/walletalarm-api-%d{yyyy-MM-dd}-%i.log.gz
+        archivedFileCount: 10
+        timeZone: UTC
+        maxFileSize: 10MB
+
+database:
+  # the name of your JDBC driver
+  driverClass: com.mysql.cj.jdbc.Driver
+
+  # the username
+  user: ${RDS_USERNAME:-xyz}
+
+  # the password
+  password: ${RDS_PASSWORD:-xyz}
+
+  # the JDBC URL
+  url: jdbc:mysql://${RDS_HOSTNAME:-127.0.0.1}:${RDS_PORT:-3306}/walletalarm?autoReconnect=true&serverTimezone=UTC&useSSL=false
+
+  # any properties specific to your JDBC driver:
+  properties:
+    charSet: UTF-8
+
+  # the maximum amount of time to wait on an empty pool before throwing an exception
+  maxWaitForConnection: 1s
+
+  # the SQL query to run when validating a connection's liveness
+  validationQuery: "/* MyService Health Check */ SELECT 1"
+
+  # the timeout before a connection validation queries fail
+  validationQueryTimeout: 3s
+
+  # the minimum number of connections to keep open
+  minSize: 8
+
+  # the maximum number of connections to keep open
+  maxSize: 32
+
+  # whether or not idle connections should be validated
+  checkConnectionWhileIdle: false
+
+  # the amount of time to sleep between runs of the idle connection validation, abandoned cleaner and idle pool resizing
+  evictionInterval: 10s
+
+  # the minimum amount of time an connection must sit idle in the pool before it is eligible for eviction
+  minIdleTime: 1 minute
+
+fcmToken: xyz
+
+infura.apikey : xyz
+
+etherscan.apikey : xyz
+
+test.mode: false
+
+eth.maxBlockNumber : 6047007
+eth.latestBlockNumber : 0
+
+swagger:
+  resourcePackage: com.walletalarm.platform.resources
+
+quartz:
+  org.quartz.scheduler.instanceName: "scheduler"
+  org.quartz.scheduler.instanceId: "AUTO"
+  org.quartz.scheduler.skipUpdateCheck: "true"
+  org.quartz.threadPool.class: "org.quartz.simpl.SimpleThreadPool"
+  org.quartz.threadPool.threadCount: "10"
+  org.quartz.threadPool.threadPriority: "5"
+  org.quartz.jobStore.misfireThreshold: "60000"
+  org.quartz.jobStore.class: "org.quartz.impl.jdbcjobstore.JobStoreTX"
+  org.quartz.jobStore.driverDelegateClass: "org.quartz.impl.jdbcjobstore.StdJDBCDelegate"
+  org.quartz.jobStore.useProperties: "false"
+  org.quartz.jobStore.dataSource: "myDS"
+  org.quartz.jobStore.tablePrefix: "QRTZ_"
+  org.quartz.jobStore.isClustered: "true"
+  org.quartz.dataSource.myDS.driver: "com.mysql.cj.jdbc.Driver"
+  org.quartz.dataSource.myDS.URL: "jdbc:mysql://${RDS_HOSTNAME:-127.0.0.1}:${RDS_PORT:-3306}/walletalarm?autoReconnect=true&serverTimezone=UTC&useSSL=false"
+  org.quartz.dataSource.myDS.user: "${RDS_USERNAME:-walletalarm}"
+  org.quartz.dataSource.myDS.password: "${RDS_PASSWORD:-admin123}"
+  org.quartz.dataSource.myDS.maxConnections: "5"
+  org.quartz.dataSource.myDS.validationQuery: "select 1"
+

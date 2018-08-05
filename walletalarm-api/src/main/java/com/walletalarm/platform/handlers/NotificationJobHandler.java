@@ -1,10 +1,12 @@
 package com.walletalarm.platform.handlers;
 
-import com.walletalarm.platform.core.*;
+import com.walletalarm.platform.core.BlockBatch;
+import com.walletalarm.platform.core.Notification;
+import com.walletalarm.platform.core.NotificationType;
+import com.walletalarm.platform.core.OS;
 import com.walletalarm.platform.core.alerts.AddressActivityAlert;
 import com.walletalarm.platform.core.alerts.JsonMessage;
 import com.walletalarm.platform.db.dao.BlockBatchDAO;
-import com.walletalarm.platform.db.dao.JobDAO;
 import com.walletalarm.platform.db.dao.NotificationDAO;
 import com.walletalarm.platform.db.dao.TransactionDAO;
 import org.slf4j.Logger;
@@ -17,9 +19,6 @@ import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.TimeZone;
 
-/**
- * Created by patankar on 9/29/17.
- */
 public class NotificationJobHandler {
     private static final Logger LOGGER = LoggerFactory.getLogger(NotificationJobHandler.class);
     private static final DateTimeFormatter DATE_TIME_FORMATTER = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
@@ -29,26 +28,13 @@ public class NotificationJobHandler {
         FORMAT.setTimeZone(TimeZone.getTimeZone("UTC"));
     }
 
-    public static int doNotificationJob(JobDAO jobDAO, BlockBatchDAO blockBatchDAO, NotificationDAO notificationDAO,
-                                        TransactionDAO transactionDAO, String server, String fcmToken) {
-        //Create job info
-        Job job = new Job();
-        job.setStatus(JobStatus.STARTED);
-        job.setType(JobType.NOTIFICATION);
-        int jobId = jobDAO.create(job);
-
+    public static void doNotificationJob(BlockBatchDAO blockBatchDAO, NotificationDAO notificationDAO,
+                                         TransactionDAO transactionDAO, String server, String fcmToken) {
         LOGGER.info("Starting Notification Job. Start time - " + DATE_TIME_FORMATTER.format(LocalDateTime.now()));
 
         notifyBlockBatch(blockBatchDAO, notificationDAO, transactionDAO, server, fcmToken);
 
         LOGGER.info("Finished Notification Job. End time - " + DATE_TIME_FORMATTER.format(LocalDateTime.now()));
-
-        //Update job info
-        job.setJobId(jobId);
-        job.setStatus(JobStatus.FINISHED);
-        jobDAO.update(job);
-
-        return jobId;
     }
 
     private static void notifyBlockBatch(BlockBatchDAO blockBatchDAO, NotificationDAO notificationDAO,

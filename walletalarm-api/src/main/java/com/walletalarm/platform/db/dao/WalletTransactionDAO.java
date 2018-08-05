@@ -37,14 +37,17 @@ public interface WalletTransactionDAO {
     @SqlUpdate("delete from wallet_transaction where wallet_transaction_id = :walletTransactionId")
     void deleteHard(@Bind("walletTransactionId") int walletTransactionId);
 
+    @SqlUpdate("delete from wallet_transaction")
+    void deleteHardAll();
+
     @SqlQuery("select * from wallet_transaction where wallet_transaction_id = :walletTransactionId")
     @Mapper(WalletTransactionMapper.class)
     WalletTransaction findById(@Bind("walletTransactionId") int walletTransactionId);
 
-    @SqlQuery("select * from wallet_transaction where to = :address or from = :address " +
+    @SqlQuery("select * from wallet_transaction where `to` = :address or `from` = :address " +
             "order by time desc " +
             "limit :offset, :limit")
     @Mapper(WalletTransactionMapper.class)
     List<WalletTransaction> getTransactionByAddress(@Bind("address") String address, @Bind("offset") int offset,
-                                              @Bind("limit") int limit);
+                                                    @Bind("limit") int limit);
 }

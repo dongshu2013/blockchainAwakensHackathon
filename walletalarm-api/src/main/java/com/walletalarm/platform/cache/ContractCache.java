@@ -13,12 +13,11 @@ public class ContractCache {
     private static final Logger LOGGER = LoggerFactory.getLogger(ContractCache.class);
 
     private static ContractCache contractCache = new ContractCache();
+    private static LoadingCache<String, Contract> cache;
 
     public static ContractCache getInstance() {
         return contractCache;
     }
-
-    private static LoadingCache<String, Contract> cache;
 
     public void initialize(CacheManager cacheManager) {
         if (cache == null) {

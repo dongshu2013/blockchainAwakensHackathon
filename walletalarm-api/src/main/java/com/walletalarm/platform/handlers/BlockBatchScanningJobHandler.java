@@ -34,27 +34,14 @@ public class BlockBatchScanningJobHandler {
         FORMAT.setTimeZone(TimeZone.getTimeZone("UTC"));
     }
 
-    public static int doBlockBatchScanningJob(JobDAO jobDAO, BlockBatchDAO blockBatchDAO, WalletDAO walletDAO,
-                                              ContractDAO contractDAO, TransactionDAO transactionDAO,
-                                              WalletTransactionDAO walletTransactionDAO, String server, Web3j web3j) {
-        //Create job info
-        Job job = new Job();
-        job.setStatus(JobStatus.STARTED);
-        job.setType(JobType.BLOCK_SCRAPPING);
-        int jobId = jobDAO.create(job);
-
+    public static void doBlockBatchScanningJob(BlockBatchDAO blockBatchDAO, WalletDAO walletDAO,
+                                               ContractDAO contractDAO, TransactionDAO transactionDAO,
+                                               WalletTransactionDAO walletTransactionDAO, String server, Web3j web3j) {
         LOGGER.debug("Starting Block Scrapping Job. Start time - " + DATE_TIME_FORMATTER.format(LocalDateTime.now()));
 
         scanBlockBatch(blockBatchDAO, walletDAO, contractDAO, transactionDAO, walletTransactionDAO, server, web3j);
 
         LOGGER.debug("Finished Block Scrapping Job. End time - " + DATE_TIME_FORMATTER.format(LocalDateTime.now()));
-
-        //Update job info
-        job.setJobId(jobId);
-        job.setStatus(JobStatus.FINISHED);
-        jobDAO.update(job);
-
-        return jobId;
     }
 
     private static void scanBlockBatch(BlockBatchDAO blockBatchDAO, WalletDAO walletDAO, ContractDAO contractDAO,

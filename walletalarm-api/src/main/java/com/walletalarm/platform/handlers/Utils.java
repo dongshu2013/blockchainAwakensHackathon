@@ -19,9 +19,6 @@ import java.net.URLConnection;
 import java.nio.charset.Charset;
 import java.sql.Timestamp;
 
-/**
- * Created by patankar on 10/17/17.
- */
 public class Utils {
     private static final Logger LOGGER = LoggerFactory.getLogger(Utils.class);
     private static final String IMAGE_BUCKET_NAME = "icoalarm-images";
