@@ -1,0 +1,54 @@
+<ion-card [class.list-layout]="currentLayout==='list'">
+  <ion-card-content style="padding: 0px 12px !important;" class="coin-card" [ngStyle]="{'border-left': n.color}">
+    <ion-grid>
+      <ion-row tappable (click)="coinView()">
+        <ion-col col-6 style="display:flex;">
+          <img *ngIf="n.fullURL" [class]="n.symbol" crossOrigin="anonymous" (error)="errorLoad(n)" style="width: 2rem;
+    height: 2rem;
+    margin-right: 1rem;" src={{n.fullURL}}>
+          <h2 class="coin-card-title">{{n.name}} </h2>
+        </ion-col>
+        <ion-col col-6 style="text-align: right;" *ngIf="n.quotes">
+          <div class="coin-up price-increase" [class.coin-down]="n.difference1 < 0" *ngIf="currentTimeRange==1">
+            <ion-icon name="md-arrow-dropup" *ngIf="n.difference1 > 0"></ion-icon>
+            <ion-icon name="md-arrow-dropdown" *ngIf="n.difference1 < 0"></ion-icon>
+            <span>{{n.difference1 | currency:selectedCurrency:'true'}}</span>
+          </div>
+          <div class="coin-up price-increase" [class.coin-down]="n.difference24 < 0" *ngIf="currentTimeRange==2">
+            <ion-icon name="md-arrow-dropup" *ngIf="n.difference24 > 0"></ion-icon>
+            <ion-icon name="md-arrow-dropdown" *ngIf="n.difference24 < 0"></ion-icon>
+            <span>{{n.difference24 | currency:selectedCurrency:'true'}}</span>
+          </div>
+          <div class="coin-up price-increase" [class.coin-down]="n.difference7D < 0" *ngIf="currentTimeRange==3">
+            <ion-icon name="md-arrow-dropup" *ngIf="n.difference7D > 0"></ion-icon>
+            <ion-icon name="md-arrow-dropdown" *ngIf="n.difference7D < 0"></ion-icon>
+            <span>{{n.difference7D | currency:selectedCurrency:'true'}}</span>
+          </div>
+        </ion-col>
+      </ion-row>
+      <ion-row tappable>
+        <ion-col col-6>
+          <span class="total-price num-font">
+            {{n.balance | number:0}} {{n.symbol}}
+            <span *ngIf="n.totalPrice>0">({{n.totalPrice | currency:selectedCurrency:'true'}})</span>
+          </span>
+        </ion-col>
+        <ion-col col-6 *ngIf="n.quotes" style="text-align: right;">
+          <div class="price-number">
+            {{n.price | currency:selectedCurrency:'true'}}
+            <span *ngIf="currentTimeRange==1">%{{n.quotes.USD.percent_change_1h}}</span>
+            <span *ngIf="currentTimeRange==2">%{{n.quotes.USD.percent_change_24h}}</span>
+            <span *ngIf="currentTimeRange==3">%{{n.quotes.USD.percent_change_7d}}</span>
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-card-content>
+</ion-card>
+
+<ion-list *ngIf="listSegment==='list'">
+  <ion-item>
+    Anilesh
+  </ion-item>
+</ion-list>
+

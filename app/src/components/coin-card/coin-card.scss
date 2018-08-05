@@ -1,0 +1,73 @@
+coin-card {
+  .right{
+    text-align: right;
+  }
+
+  .coin-card {
+    border-radius: 10px;
+    padding: 1rem;
+  }
+
+  .worth {
+    font-weight: bold;
+    color: green;
+  }
+
+  .price {
+    color: #999;
+    font-size: 12px;
+  }
+  .rank {
+    font-size: 10px;
+    color: #999;
+  }
+
+  .coin-card-title {
+    font-size: 14px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    white-space: nowrap;
+  }
+  [col-6]{
+    padding-bottom: 0px;
+    padding-top: 0px;
+  }
+  .grid {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    padding-left: 0px;
+  }
+
+  .price-increase{
+    font-size: 16px;
+  }
+
+  .price-number{
+    font-size: 14px;
+  }
+  .price-number span{
+    font-size: 12px;
+  }
+
+  .total-price{
+    font-size: 12px;
+    color: #fff;
+  }
+  .total-price span {
+    font-size: 11px;
+    color: #999;
+  }
+
+  .card-content{
+    padding-top: 0px;
+  }
+
+  .list-layout{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+  }
+  .list-layout .coin-card{
+    border-radius: 0px;
+  }
+}

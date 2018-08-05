@@ -19,6 +19,7 @@ export class HeaderComponent {
   @Input('text') text;
   @Input('subtext') subtext;
   @Input('isCurrency') isCurrency;
+  @Input('showButtons') showButtons;
   public currentCurrency = 'USD';
 
   constructor(public popoverCtrl: PopoverController,public authService: RestProvider) {
