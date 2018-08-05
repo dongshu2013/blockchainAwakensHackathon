@@ -5,9 +5,8 @@
 
 npm install
 
--Install IONIC
-
--Install CORDOVA
+-Install IONIC and CORDOVA
+npm install -g ionic cordova
 
 ionic serve
 
