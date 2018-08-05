@@ -1,0 +1,53 @@
+page-settings {
+
+  expandable-header{
+    min-height: 80px !important;
+  }
+  .scroll-content{
+    margin-top: 30px !important;
+  }
+
+  .sub-header{
+    font-size: 40px;
+    text-align: center;
+    margin-top: 2rem;
+    min-height: 50px;
+    opacity: 1 !important;
+  }
+
+  .sub-val {
+    font-size: 11px;
+    margin-top: 5px;
+  }
+  .item {
+    padding-left: 0px;
+  }
+
+ .item-inner{
+   padding-left: 1rem;
+ }
+  .segment{
+    max-width: 12rem;
+    margin-top: -10px;
+  }
+
+  .segment-button{
+    border-bottom-style:none !important;
+    max-width: 4rem;
+    //opacity: 0.4 !important;
+  }
+  .segment-button.segment-activated {
+    border-bottom-style: solid !important;
+    opacity: 1 !important;
+  }
+
+  .fx-items .input-wrapper{
+    display: flex;
+    justify-content: space-between;
+  }
+  .fx-items .right {
+    text-align: right;
+  }
+
+
+}

@@ -4,19 +4,36 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { TabsPage } from '../pages/tabs/tabs';
+import {ThemeProvider} from "../providers/theme/theme";
+import {RestProvider} from "../providers/rest/rest";
 
 @Component({
   templateUrl: 'app.html'
 })
 export class MyApp {
   rootPage:any = TabsPage;
+  selectedTheme: String;
 
-  constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
-    platform.ready().then(() => {
-      // Okay, so the platform is ready and our plugins are available.
-      // Here you can do any higher level native things you might need.
-      statusBar.styleDefault();
-      splashScreen.hide();
+  constructor(public platform: Platform,
+              public statusBar: StatusBar,
+              public authService: RestProvider,
+              public themeProvider: ThemeProvider,
+              public splashScreen: SplashScreen) {
+    this.themeProvider.getActiveTheme().subscribe(val => this.selectedTheme = val);
+    this.authService.setTheme(this.selectedTheme);
+
+    this.webOnly();
+    //this.phoneOnly();
+  }
+
+  phoneOnly(){
+    this.platform.ready().then(() => {
+      this.statusBar.styleDefault();
+      this.splashScreen.hide();
     });
+  }
+
+  webOnly (){
+
   }
 }

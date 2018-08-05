@@ -1,0 +1,45 @@
+<div class="header-container" *ngIf="showText">
+  <div *ngIf="subtext" class="logo-center">
+    <span class="text" *ngIf="isCurrency">{{text | currency:currentCurrency:'true'}}</span>
+    <span class="text" *ngIf="!isCurrency">{{text}}</span>
+    <div class="title logo"></div>
+    <span class="text" *ngIf="isCurrency">{{subtext | currency:currentCurrency:'true'}}</span>
+    <span class="text" *ngIf="!isCurrency">{{subtext}}</span>
+  </div>
+
+  <div *ngIf="!subtext" class="flex-row" style="width: 100%">
+    <div class="title logo"></div>
+    <span class="text" *ngIf="!isCurrency">{{text}}</span>
+    <ion-buttons end style="display: inline-block;float: right;">
+      <button ion-button icon-only color="gray" (click)="notification()" clear>
+        <ion-icon name='notifications'></ion-icon>
+        <span class="notification num-font">{{count}}</span>
+      </button>
+      <button ion-button icon-only color="gray" (click)="search()" class="search-button" clear>
+        <ion-icon name="search"></ion-icon>
+      </button>
+      <button ion-button icon-only color="gray" (click)="popOver($event)" class="search-button" clear
+              style="font-size: 1.4rem;">
+        <ion-icon ios="ios-more-outline" md="md-more"></ion-icon>
+      </button>
+    </ion-buttons>
+  </div>
+
+</div>
+
+<div class="header-container" *ngIf="!showText">
+  <div class="title logo"></div>
+  <ion-buttons end style="display: inline-block;float: right;">
+    <button ion-button icon-only color="gray" (click)="notification()" clear>
+      <ion-icon name='notifications'></ion-icon>
+      <span class="notification num-font">{{count}}</span>
+    </button>
+    <button ion-button icon-only color="gray" (click)="search()" class="search-button" clear>
+      <ion-icon name="search"></ion-icon>
+    </button>
+    <button ion-button icon-only color="gray" (click)="popOver($event)" class="search-button" clear
+            style="font-size: 1.4rem;">
+      <ion-icon ios="ios-more-outline" md="md-more"></ion-icon>
+    </button>
+  </ion-buttons>
+</div>

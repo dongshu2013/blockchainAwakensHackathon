@@ -1,0 +1,147 @@
+<app-header [showText]="subHeader" [text]="title" [subtext]="" [isCurrency]="false"></app-header>
+<ion-header *ngIf="!subHeader">
+
+  <expandable-header [scrollArea]="mycontent" headerHeight="20">
+    <div class="sub-header">
+      Settings
+    </div>
+  </expandable-header>
+</ion-header>
+
+<ion-content style="margin-bottom: 4rem;" #mycontent>
+  <div (swipe)="swipe($event)">
+
+
+  <ion-list>
+    <ion-list-header>
+      {{ 'settings_general' | translate }}
+    </ion-list-header>
+    <ion-item>
+      <div class="flex-row">
+        <div class="flex-column">
+          <label>
+            {{ 'settings_theme' | translate }}</label>
+          <span class="sub-val" *ngIf="themeSegment==='night-theme'">{{ 'night-theme' | translate }} </span>
+          <span class="sub-val" *ngIf="themeSegment==='dark-theme'">{{ 'dark-theme' | translate }} </span>
+          <span class="sub-val" *ngIf="themeSegment==='light-theme'">{{ 'light-theme' | translate }} </span>
+        </div>
+        <ion-segment mode="md" [(ngModel)]="themeSegment" color={{toggleColor}} (ionChange)="changeTheme()">
+          <ion-segment-button value="night-theme" style="max-width: 4rem;">
+            <ion-icon name="moon"></ion-icon>
+          </ion-segment-button>
+          <ion-segment-button value="dark-theme" style="max-width: 4rem;">
+            <ion-icon name="ios-partly-sunny-outline"></ion-icon>
+          </ion-segment-button>
+
+          <ion-segment-button value="light-theme" style="max-width: 4rem;">
+            <ion-icon name="ios-sunny-outline"></ion-icon>
+          </ion-segment-button>
+        </ion-segment>
+      </div>
+    </ion-item>
+    <ion-item>
+      <div class="flex-row">
+        <div class="flex-column">
+          <label>
+            {{ 'settings_layout' | translate }}</label>
+
+          <span class="sub-val" *ngIf="listSegment==='card'">{{ 'card' | translate }} </span>
+          <span class="sub-val" *ngIf="listSegment==='list'">{{ 'list' | translate }} </span>
+        </div>
+        <ion-segment mode="md" style="max-width: 8rem;" [(ngModel)]="listSegment" color={{toggleColor}}
+                     (ionChange)="changeListStyle()">
+          <ion-segment-button value="card" style="max-width: 4rem;">
+            <ion-icon name="card"></ion-icon>
+          </ion-segment-button>
+          <ion-segment-button value="list" style="max-width: 4rem;">
+            <ion-icon name="list"></ion-icon>
+          </ion-segment-button>
+        </ion-segment>
+      </div>
+
+    </ion-item>
+    <ion-item>
+      <ion-label style="white-space: pre-wrap !important;" class="lbl">{{ 'settings_inapp' | translate }}</ion-label>
+      <ion-toggle [(ngModel)]="inApp" color="toggle-color"></ion-toggle>
+    </ion-item>
+    <ion-item class="fx-items" tappable (click)="presentChangeLanguage()">
+      <ion-label style="white-space: pre-wrap !important;" class="lbl"> {{ 'settings_language' | translate }}
+      </ion-label>
+      <ion-label class="right">{{language}}</ion-label>
+    </ion-item>
+    <ion-item class="fx-items" tappable (click)="presentChangeCurrency()">
+      <ion-label style="white-space: pre-wrap !important;" class="lbl"> {{ 'settings_currency' | translate }}
+      </ion-label>
+      <ion-label class="right">{{currencyName}}</ion-label>
+    </ion-item>
+  </ion-list>
+
+  <ion-list>
+    <ion-list-header>
+      SECURITY
+    </ion-list-header>
+    <ion-item (click)="passcode()">
+      <ion-label style="white-space: pre-wrap !important;" class="lbl">{{ 'settings_passcode' | translate }}</ion-label>
+      <ion-toggle [(ngModel)]="isPasscode" color="toggle-color" (ionChange)="passcode($event)"></ion-toggle>
+    </ion-item>
+
+    <ion-item>
+      <ion-label style="white-space: pre-wrap !important;" class="lbl">{{ 'settings_finger' | translate }}</ion-label>
+      <ion-toggle [(ngModel)]="inApp" color="toggle-color" [disabled]="true"></ion-toggle>
+    </ion-item>
+  </ion-list>
+
+  <ion-list>
+    <ion-list-header>
+      Recovery
+    </ion-list-header>
+    <ion-item tappable (click)="openQRCode()">
+      <label>Generate Recovery code</label>
+    </ion-item>
+    <ion-item (click)="openPortDevice()">
+      <label>Restore from Recovery Code</label>
+    </ion-item>
+  </ion-list>
+
+  <ion-list>
+    <ion-list-header>
+      {{ 'settings_social' | translate }}
+    </ion-list-header>
+    <ion-item>
+      <label>{{ 'settings_telegram' | translate }}</label>
+    </ion-item>
+    <ion-item>
+      <label>{{ 'settings_fb' | translate }}</label>
+    </ion-item>
+    <ion-item>
+      <label>{{ 'settings_twitter' | translate }}</label>
+    </ion-item>
+  </ion-list>
+  <ion-list style="padding-bottom: 4rem;">
+    <ion-list-header>
+      {{ 'settings_about' | translate }}
+    </ion-list-header>
+    <ion-item>
+      <label>{{review}}</label>
+    </ion-item>
+    <ion-item>
+      <label>{{ 'settings_share' | translate }}</label>
+    </ion-item>
+    <ion-item (click)="feedback()" tappable>
+      <label>{{ 'settings_feedback' | translate }}</label>
+    </ion-item>
+    <ion-item (click)="policy()" tappable>
+      <label>{{ 'settings_policy' | translate }}</label>
+    </ion-item>
+    <ion-item>
+      <label style="display: block;">{{ 'settings_version' | translate }}</label>
+      <label style="font-size: 70%;">1.0.1</label>
+    </ion-item>
+    <ion-item>
+      <label style="display: block;">{{ 'settings_deviceId' | translate }}</label>
+      <label style="font-size: 70%;">1.0.1</label>
+    </ion-item>
+  </ion-list>
+  </div>
+
+</ion-content>

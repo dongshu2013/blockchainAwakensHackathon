@@ -1,0 +1,25 @@
+page-pin-screen {
+  ion-content {
+    background: #7F00FF;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to bottom, #7f00ff, #b700ff);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to bottom, #7F00FF, #b700ff); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    margin-top: 0px !important;
+  }
+
+  .button{
+    width: 65px;
+    height: 65px;
+  }
+
+  .pin-delete span {
+    color: #fff;
+  }
+
+  .crl {
+    margin-top: 6rem;
+  }
+
+  .crl ion-icon {
+    padding: 1rem;
+  }
+}
