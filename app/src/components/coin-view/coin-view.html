@@ -1,0 +1,120 @@
+<ion-content class="ico-view" class="has-header">
+  <div style="" class="title-container">
+    <div style="height: 50px;">
+      <ion-title>
+        <button ion-button icon-only color="gray" (click)="notification()" clear>
+          <ion-icon name='arrow-back'></ion-icon>
+        </button>
+        <div class="name">
+          <img *ngIf="coin.fullURL" crossOrigin="anonymous" (error)="errorLoad(n)" style="width: 2rem;border-radius: 1rem;background: #fff;
+    height: 2rem;" src={{coin.fullURL}}>
+          <div class="flex-column">
+             <span>
+                 {{coin.name}}
+               <span class="rank">
+                 Rank {{coin.rank}}
+               </span>
+              </span>
+            <span class="price">
+               {{coin.balance | number:0}} {{coin.symbol}}
+            <span *ngIf="coin.totalPrice>0">({{coin.totalPrice | currency:selectedCurrency:'true'}})
+             </span>
+             </span>
+          </div>
+        </div>
+      </ion-title>
+    </div>
+    <div style="margin: 1rem;margin-top: 2rem;">
+      <ion-grid>
+        <ion-row>
+          <ion-col col-4>
+            <div class="flex-column">
+              <span class="lbl">Market Cap</span>
+              <span class="val">{{coin.market_cap | currency:currentCurrency:'true'}}</span>
+            </div>
+          </ion-col>
+          <ion-col col-4>
+            <div class="flex-column">
+              <span class="lbl">Circulating Supply</span>
+              <span class="val">{{coin.circulating_supply | currency:currentCurrency:'true'}}</span>
+            </div>
+          </ion-col>
+          <ion-col col-4>
+            <div class="flex-column">
+              <span class="lbl">Valume 24H</span>
+              <span class="val">{{coin.volume_24h | currency:currentCurrency:'true'}}</span>
+            </div>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
+  </div>
+
+  <ion-segment mode="md" [(ngModel)]="segment" (ionChange)="updateData()" class="main-badge">
+    <ion-segment-button value="DETAILS">
+      Details
+    </ion-segment-button>
+    <ion-segment-button value="HOLDERS">
+      Top Holders
+    </ion-segment-button>
+    <ion-segment-button value="TRANSACTIONS">
+      Transactions
+    </ion-segment-button>
+  </ion-segment>
+
+  <div *ngIf="segment=='DETAILS'">
+  <div>
+    <div style="margin-left: 1rem;" class="chip-container coin-chip">
+      <ion-chip  *ngFor="let c of chips" [class.selected]="c.color=='primary'" (click)="chipClick(c)" tappable>
+        <ion-label>{{c.text}}</ion-label>
+      </ion-chip>
+    </div>
+    <chart [options]="options" type="chart"></chart>
+  </div>
+  <ion-list>
+    <ion-list-header>
+      OTHER Details
+    </ion-list-header>
+    <ion-item class="list-row">
+      <label>Total Supply</label>
+      <span class="num-font">{{coin.total_supply | number:0}}</span>
+    </ion-item>
+    <ion-item class="list-row">
+      <label>Last 1H</label>
+      <div class="coin-up price-increase" [class.coin-down]="coin.difference1 < 0">
+        <ion-icon name="md-arrow-dropup" *ngIf="coin.difference1 > 0"></ion-icon>
+        <ion-icon name="md-arrow-dropdown" *ngIf="coin.difference1 < 0"></ion-icon>
+        <span>{{coin.difference1 | currency:selectedCurrency:'true'}} (%{{coin.percent_change_1h | number:0}})</span>
+      </div>
+    </ion-item>
+    <ion-item class="list-row">
+      <label>Last 24H</label>
+      <div class="coin-up price-increase" [class.coin-down]="coin.difference24 < 0">
+        <ion-icon name="md-arrow-dropup" *ngIf="coin.difference24 > 0"></ion-icon>
+        <ion-icon name="md-arrow-dropdown" *ngIf="coin.difference24 < 0"></ion-icon>
+        <span>{{coin.difference24 | currency:selectedCurrency:'true'}} (%{{coin.percent_change_24h | number:0}})</span>
+      </div>
+    </ion-item>
+    <ion-item class="list-row">
+      <label>Last 7D</label>
+      <div class="coin-up price-increase" [class.coin-down]="coin.difference7D < 0">
+        <ion-icon name="md-arrow-dropup" *ngIf="coin.difference7D > 0"></ion-icon>
+        <ion-icon name="md-arrow-dropdown" *ngIf="coin.difference7D < 0"></ion-icon>
+        <span>{{coin.difference7D | currency:selectedCurrency:'true'}} (%{{coin.percent_change_7d | number:0}})</span>
+      </div>
+    </ion-item>
+  </ion-list>
+  </div>
+
+  <div *ngIf="segment=='HOLDERS'">
+    <token-holder-card [holders]="holders" [currentLayout]="currentLayout"></token-holder-card>
+    Top Holders
+  </div>
+
+  <div *ngIf="segment=='TRANSACTIONS'" >
+    <transaction-card [transactions]="transactions" [currentLayout]="currentLayout"></transaction-card>
+    Transactions
+  </div>
+
+
+</ion-content>
